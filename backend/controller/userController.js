@@ -8,8 +8,13 @@ const createUser = async (req, res) => {
             return res.status(404).json({ msg: 'User data not found!' });
         }
 
+        let user = await Users.findOne({ email: req.body.email }); // fetch user from Users and match with user enterd email
+        if (user) {
+            return res.status(400).json({ msg: 'email already exists!' });
+        }
+
         const savedData = await userData.save();
-        res.status(200).json({ User: userData, msg : 'User Created Successfully!' });
+        res.status(200).json({ User: userData, msg: 'User Created Successfully!' });
     } catch (error) {
         res.status(500).json(error);
     }
@@ -23,7 +28,7 @@ const getAll = async (req, res) => {
             return res.status(404).json({ msg: 'User data not found!' });
         }
 
-        res.status(200).json({ Users: userData, msg : 'User Found Successfully!' });
+        res.status(200).json({ Users: userData, msg: 'User Found Successfully!' });
     } catch (error) {
         res.status(500).json(error);
     }
@@ -38,7 +43,7 @@ const getOne = async (req, res) => {
             return res.status(404).json({ msg: `User data not found with id ${id}!` });
         }
 
-        res.status(200).json({ User: userData, msg : 'User Found Successfully!' });
+        res.status(200).json({ User: userData, msg: 'User Found Successfully!' });
     } catch (error) {
         res.status(500).json(error);
     }

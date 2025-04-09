@@ -41,7 +41,7 @@ const ShowUser = () => {
                 <table border={1} cellPadding={10} cellSpacing={0} className='mt-8 w-full border border-gray-400 border-collapse'>
                     <thead>
                         <tr>
-                            <th className='border border-gray-400 bg-purple-800 text-white p-2'>S.No.</th>
+                            <th className='border border-gray-400 bg-purple-800 text-white p-2'>Sr.No.</th>
                             <th className='border border-gray-400 bg-purple-800 text-white p-2'>User Name</th>
                             <th className='border border-gray-400 bg-purple-800 text-white p-2'>User Email</th>
                             <th className='border border-gray-400 bg-purple-800 text-white p-2'>Actions</th>
